@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Early Bird Academy | Family Website</title>
+<meta name="description" content="Explore Early Bird Academy programs, tuition, calendar, family information, FAQs, and contact details.">
+<style>
+:root{--navy:#17324d;--teal:#287c78;--gold:#f2bd59;--cream:#fffaf0;--ink:#243342;--muted:#5d6b75;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.6;background:#fff}
+header{background:var(--navy);color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.brand{font-size:1.35rem;font-weight:800;letter-spacing:.3px}.brand span{color:var(--gold)}
+nav{display:flex;gap:16px;flex-wrap:wrap}nav a{color:white;text-decoration:none;font-size:.92rem}nav a:hover{text-decoration:underline}
+.hero{padding:76px 8%;background:linear-gradient(120deg,#e7f3ef,#fff4dc);display:grid;grid-template-columns:1.35fr .8fr;gap:35px;align-items:center}
+.eyebrow{color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:.8rem}
+h1{font-size:clamp(2.4rem,5vw,4.2rem);line-height:1.05;color:var(--navy);margin:12px 0}
+h2{color:var(--navy);font-size:2rem;margin:0 0 14px}h3{color:var(--teal);margin:0 0 8px}
+.hero p{font-size:1.1rem;max-width:650px}.hero-art{background:var(--teal);color:white;border-radius:28px;padding:34px;text-align:center;box-shadow:0 15px 35px #17324d22}
+.sun{font-size:5rem;line-height:1}.hero-art strong{display:block;font-size:1.5rem;margin-top:10px}
+.btn{display:inline-block;background:var(--teal);color:white;padding:12px 20px;border-radius:7px;text-decoration:none;font-weight:700;margin-top:12px}
+section{padding:58px 8%}.soft{background:var(--cream)}.intro{max-width:850px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+.card{border:1px solid #e2e9e7;border-radius:14px;padding:22px;background:white;box-shadow:0 5px 18px #17324d0a}
+.card p{margin-bottom:0}.pill{display:inline-block;background:#e7f3ef;color:var(--teal);font-size:.8rem;font-weight:700;padding:4px 10px;border-radius:30px}
+table{border-collapse:collapse;width:100%;margin-top:18px;background:white}th,td{border:1px solid #dbe4e2;padding:12px;text-align:left}th{background:#e7f3ef;color:var(--navy)}
+.note{color:var(--muted);font-size:.92rem}.schedule{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:20px}
+.quote{font-style:italic}.by{font-style:normal;font-weight:700;color:var(--teal);display:block;margin-top:10px}
+.faq details{padding:15px 0;border-bottom:1px solid #dbe4e2}.faq summary{font-weight:700;color:var(--navy);cursor:pointer}
+.contact{background:var(--navy);color:white}.contact h2,.contact h3{color:white}.contact a{color:#ffe0a1}
+footer{background:#10263a;color:#d9e2e8;text-align:center;padding:22px 8%;font-size:.9rem}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding:55px 7%}.cards{grid-template-columns:1fr}.schedule{grid-template-columns:1fr}section{padding:45px 7%}header{padding:16px 7%}}
+
+.photo-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:26px}
+.photo-gallery figure{margin:0;overflow:hidden;border-radius:16px;background:white;box-shadow:0 5px 18px #17324d12}
+.photo-gallery img{display:block;width:100%;height:260px;object-fit:cover}
+.photo-gallery figcaption{padding:10px 14px;color:var(--muted);font-size:.88rem}
+.food-drive{margin:24px 0;padding:22px 24px;border-radius:16px;background:#fff1cf;border:2px solid #f2bd59;color:#17324d}
+.food-drive h3{margin-bottom:6px;color:#17324d}
+@media(max-width:760px){.photo-gallery{grid-template-columns:1fr}.photo-gallery img{height:230px}}
+
+.site-nav{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.site-nav .nav-tab{appearance:none;border:1px solid #ffffff55;background:transparent;color:#fff;padding:10px 13px;border-radius:8px;font:600 .92rem Arial,sans-serif;cursor:pointer}
+.site-nav .nav-tab:hover,.site-nav .nav-tab:focus-visible{background:#ffffff20;outline:2px solid var(--gold);outline-offset:2px}
+.site-nav .nav-tab.active{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.tab-panel[hidden]{display:none!important}
+.tab-panel{animation:tabFade .22s ease}
+@keyframes tabFade{from{opacity:.55;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.home-gallery{padding-top:0}
+.inquiry-form{max-width:720px;margin-top:22px;padding:22px;background:#fff;border-radius:14px;color:var(--ink)}
+.inquiry-form label{display:block;font-weight:700;margin:12px 0 5px}
+.inquiry-form input,.inquiry-form select,.inquiry-form textarea{width:100%;padding:11px;border:1px solid #cbd7d4;border-radius:7px;font:inherit}
+.inquiry-form textarea{min-height:105px;resize:vertical}
+.inquiry-form button{border:0;cursor:pointer}
+.form-status{margin-top:12px;font-weight:700;color:#1b665d}
+@media(max-width:760px){.site-nav{width:100%;gap:6px}.site-nav .nav-tab{padding:9px 10px;font-size:.85rem}.hero{padding-top:38px}}
+\n</style>
+</head>
+<body>
+<header>
+  <div class="brand">☀ Early Bird <span>Academy</span></div>
+  <nav class="site-nav" aria-label="Main navigation" role="tablist">
+    <button class="nav-tab active" id="tab-home" role="tab" aria-selected="true" aria-controls="home" data-tab="home">Home</button>
+    <button class="nav-tab" id="tab-about" role="tab" aria-selected="false" aria-controls="about" data-tab="about">About</button>
+    <button class="nav-tab" id="tab-programs" role="tab" aria-selected="false" aria-controls="programs" data-tab="programs">Programs</button>
+    <button class="nav-tab" id="tab-tuition" role="tab" aria-selected="false" aria-controls="tuition" data-tab="tuition">Tuition</button>
+    <button class="nav-tab" id="tab-calendar" role="tab" aria-selected="false" aria-controls="calendar" data-tab="calendar">Calendar</button>
+    <button class="nav-tab" id="tab-families" role="tab" aria-selected="false" aria-controls="families" data-tab="families">Families</button>
+    <button class="nav-tab" id="tab-faq" role="tab" aria-selected="false" aria-controls="faq" data-tab="faq">FAQs</button>
+    <button class="nav-tab" id="tab-contact" role="tab" aria-selected="false" aria-controls="contact" data-tab="contact">Contact</button>
+  </nav>
+</header>
+<main>
+<section id="home" class="tab-panel active" role="tabpanel" aria-labelledby="tab-home"><div class="hero">
+  <div>
+    <div class="eyebrow">A bright start for every little learner</div>
+    <h1>Learn. Grow.<br>Shine.</h1>
+    <p>At Early Bird Academy, children discover the world through caring relationships, playful exploration, and meaningful learning experiences.</p>
+    <button class="btn" type="button" data-open-tab="contact">Plan a Visit</button>
+  </div>
+  <div class="hero-art"><div class="sun">☀️</div><strong>Big curiosity.<br>Little beginnings.</strong><p>Play-based care for children ages 6 weeks to 5 years.</p></div>
+</div>
+
+<div aria-label="Our learning community" class="soft home-gallery">
+  <div class="eyebrow">Little learners, big discoveries</div>
+  <h2>Learning Through Play</h2>
+  <p class="intro">Children build friendships, explore new ideas, and learn through joyful classroom experiences.</p>
+  <div class="photo-gallery">
+    <figure>
+      <img src="https://images.pexels.com/photos/11163640/pexels-photo-11163640.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200"
+           alt="Young children playing and exploring in a preschool classroom" loading="lazy">
+      <figcaption>Playful discovery and hands-on learning · Photo: Nikita Nikitin / Pexels</figcaption>
+    </figure>
+    <figure>
+      <img src="https://images.pexels.com/photos/8423401/pexels-photo-8423401.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200"
+           alt="Children interacting and playing together in a classroom" loading="lazy">
+      <figcaption>Friendship and classroom play · Photo: Pavel Danilyuk / Pexels</figcaption>
+    </figure>
+  </div>
+  <p class="note">These are illustrative stock photos, not photographs of enrolled children. Any real children's photos should only be shared with written family permission.</p>
+</div></section>
+
+<section id="about" class="tab-panel" role="tabpanel" aria-labelledby="tab-about" hidden>
+  <div class="intro"><div class="eyebrow">Welcome, families</div><h2>About Us</h2>
+  <p>Early Bird Academy is a fictional early learning community created to help children feel safe, valued, and excited to learn. Our welcoming classrooms are designed for discovery, friendship, creativity, and growing independence. We partner with families because children thrive when the important adults in their lives work together.</p>
+  <p><strong>Program Director:</strong> Nida Zohra</p></div>
+  <div class="cards">
+    <div class="card"><h3>Our Mission</h3><p>At Early Bird Academy, our mission is to provide high-quality early childhood education in a nurturing environment where children can learn, explore, and thrive. We believe in fostering curiosity, independence, creativity, and respect while building strong relationships with families and the community.</p></div>
+    <div class="card"><h3>Our Vision</h3><p>Every child is known, respected, and inspired to reach their potential in a supportive learning community.</p></div>
+    <div class="card"><h3>Our Approach</h3><p>We balance child-led exploration with intentional teaching, predictable routines, and strong family partnerships.</p></div>
+  </div>
+</section>
+
+<section id="programs" class="tab-panel soft" role="tabpanel" aria-labelledby="tab-programs" hidden>
+  <div class="eyebrow">Learning at every stage</div><h2>Programs by Age Group</h2>
+  <div class="cards">
+    <div class="card"><span class="pill">6 weeks–18 months</span><h3>Little Nest · Infants</h3><p>Warm, individualized care with responsive feeding and sleep routines, sensory play, songs, tummy time, and daily family updates.</p></div>
+    <div class="card"><span class="pill">18 months–3 years</span><h3>Busy Bees · Toddlers</h3><p>Language-rich play, movement, art, music, early social skills, and supported opportunities to practice independence.</p></div>
+    <div class="card"><span class="pill">3–5 years</span><h3>Bright Path · Preschool</h3><p>Early literacy and math, science investigations, dramatic play, outdoor discovery, creative projects, and kindergarten-readiness skills.</p></div>
+  </div>
+</section>
+
+<section id="tuition" class="tab-panel" role="tabpanel" aria-labelledby="tab-tuition" hidden>
+  <div class="eyebrow">Planning your care</div><h2>Program Details & Tuition</h2>
+  <p>We are open Monday–Friday, 7:30 a.m.–5:30 p.m. Families may choose full-time enrollment. Part-time spaces are offered when available.</p>
+  <table>
+    <thead><tr><th>Program</th><th>Schedule</th><th>Sample weekly tuition</th></tr></thead>
+    <tbody>
+      <tr><td>Infants (6 weeks–18 months)</td><td>Full day, 7:30 a.m.–5:30 p.m.</td><td>$350</td></tr>
+      <tr><td>Toddlers (18 months–3 years)</td><td>Full day, 7:30 a.m.–5:30 p.m.</td><td>$325</td></tr>
+      <tr><td>Preschool (3–5 years)</td><td>Full day, 7:30 a.m.–5:30 p.m.</td><td>$300</td></tr>
+    </tbody>
+  </table>
+  <p class="note">These are fictional sample rates for this assignment, not actual fees. A one-time $50 registration fee is due at enrollment. Tuition is due each Monday. Please contact the director for availability, a family handbook, and details about payment arrangements.</p>
+  <div class="schedule">
+    <div class="card"><h3>Daily Classroom Rhythm</h3><p>7:30–9:00 Arrival & choice play<br>9:00 Morning meeting / songs<br>9:30 Snack<br>10:00 Learning centers & outdoor play<br>11:30 Lunch<br>12:30 Rest / quiet activities<br>2:30 Snack<br>3:00 Projects, outdoor play & pickup</p><p class="note">Infant routines are individualized to each child's needs.</p></div>
+    <div class="card"><h3>What to Bring</h3><p>Please provide labeled spare clothes, weather-appropriate outerwear, diapers and wipes (if needed), and a labeled water bottle. Infants may bring their own bottles and approved comfort items. We provide meals and snacks; allergy and dietary needs are discussed during enrollment.</p></div>
+  </div>
+</section>
+
+<section id="calendar" class="tab-panel soft" role="tabpanel" aria-labelledby="tab-calendar" hidden>
+  <div class="eyebrow">November 2026</div><h2>Monthly Activities Calendar</h2>
+  <p>Our monthly themes connect stories, art, movement, early math, and hands-on discovery. Activities are adapted for each age group.</p>
+
+  <div class="food-drive">
+    <h3>🥫 Early Bird Academy Food Drive</h3>
+    <p><strong>November 9–20, 2026</strong></p>
+    <p>Families are invited to donate non-perishable food items. All collected food will be donated to a nearby shelter to support members of our community. Thank you for helping us share kindness!</p>
+  </div>
+
+  <table>
+    <thead><tr><th>Week / Date</th><th>Theme</th><th>Family connection</th></tr></thead>
+    <tbody>
+      <tr><td>Nov. 2–6</td><td>Colors Around Us</td><td>Look for colors together on your walk home.</td></tr>
+      <tr><td>Nov. 9–13</td><td>Helpers in Our Community</td><td>Share a drawing of someone who helps your family.</td></tr>
+      <tr><td>Nov. 16–20</td><td>Thankful Hearts</td><td>Talk about one kind thing someone did for you.</td></tr>
+      <tr><td>Nov. 23–25</td><td>Harvest & Healthy Foods</td><td>Send a favorite family fruit or vegetable idea.</td></tr>
+      <tr><td>Nov. 26–27</td><td>Center Closed</td><td>Thanksgiving holiday closure.</td></tr>
+      <tr><td>Nov. 30</td><td>Winter Wonder Preview</td><td>Ask your child about our new seasonal discovery table.</td></tr>
+    </tbody>
+  </table>
+  <p class="note">Calendar is a sample for the fictional program. Dates and activities may be adjusted; families receive updates through the weekly newsletter and classroom notices.</p>
+</section>
+
+<section id="families" class="tab-panel" role="tabpanel" aria-labelledby="tab-families" hidden>
+  <div class="eyebrow">A partnership that matters</div><h2>What Families Say</h2>
+  <div class="cards">
+    <div class="card"><p class="quote">“Our daughter comes home excited to tell us about the stories, songs, and things she has discovered. The teachers make us feel included.”</p><span class="by">— Maya R., fictional parent</span></div>
+    <div class="card"><p class="quote">“The daily communication and predictable routine helped our family feel confident during the transition to toddler care.”</p><span class="by">— Jordan L., fictional parent</span></div>
+    <div class="card"><p class="quote">“We appreciate that our son is encouraged to ask questions, try new things, and learn at his own pace.”</p><span class="by">— Samira K., fictional parent</span></div>
+  </div>
+  <p class="note">Testimonials above are fictional examples created for this assignment.</p>
+</section>
+
+<section id="faq" class="tab-panel soft faq" role="tabpanel" aria-labelledby="tab-faq" hidden>
+  <div class="eyebrow">Helpful information</div><h2>Frequently Asked Questions</h2>
+  <details><summary>1. What are your hours?</summary><p>We are open Monday through Friday, 7:30 a.m. to 5:30 p.m. The center is closed on selected holidays, which are shared with families in advance.</p></details>
+  <details><summary>2. How do I arrange a tour or enroll my child?</summary><p>Contact the director by phone or email to schedule a tour. After the visit, interested families receive an enrollment packet, health and emergency forms, and the family handbook.</p></details>
+  <details><summary>3. Are meals and snacks provided?</summary><p>Yes. The program provides a morning snack, lunch, and an afternoon snack. Families should share allergies, dietary restrictions, and cultural food practices before the child's start date.</p></details>
+  <details><summary>4. How do teachers communicate with families?</summary><p>Teachers share daily updates at pickup and through a secure family communication platform. A weekly email includes reminders, classroom learning, and upcoming events.</p></details>
+  <details><summary>5. What happens if my child is sick?</summary><p>Please keep your child home when they have a fever, vomiting, diarrhea, or symptoms that prevent comfortable participation. Contact the director for the illness and return-to-care guidelines in the family handbook.</p></details>
+  <details><summary>6. Do children go outdoors every day?</summary><p>Outdoor play is part of our daily plan when weather and safety conditions allow. Please send clothing suitable for the season.</p></details>
+  <details><summary>7. How do you support children with different needs?</summary><p>We work with families to understand each child's strengths, routines, communication, and support needs. When appropriate, we collaborate with families and relevant specialists to plan inclusive participation.</p></details>
+</section>
+
+<section id="contact" class="tab-panel contact" role="tabpanel" aria-labelledby="tab-contact" hidden>
+  <div class="eyebrow" style="color:#ffe0a1">Let's connect</div><h2>Contact Us</h2>
+  <div class="cards">
+    <div class="card"><h3>Visit Us</h3><p>Early Bird Academy<br>125 Meadow Lane<br>Columbia, MD 21044</p></div>
+    <div class="card"><h3>Contact Information</h3>
+      <p><strong>Director:</strong> Nida Zohra<br>
+      <strong>Phone:</strong> (410) 555-0186<br>
+      <strong>Email:</strong> <a href="mailto:hello@earlybirdacademy.example">hello@earlybirdacademy.example</a><br>
+      <strong>Twitter ID:</strong> @YourTwitterID<br>
+      <strong>Facebook ID:</strong> YourFacebookPage</p>
+    </div>
+    <div class="card"><h3>Office Hours</h3><p>Monday–Friday<br>9:00 a.m.–4:00 p.m.<br><br>Please call or email to schedule a tour.</p></div>
+  </div>
+
+    <form class="inquiry-form" id="family-inquiry">
+      <h3>Family Inquiry</h3>
+      <p>Interested in learning more or arranging a tour? Send us a message.</p>
+      <label for="family-name">Your name</label>
+      <input id="family-name" name="name" type="text" autocomplete="name" required>
+      <label for="family-email">Email address</label>
+      <input id="family-email" name="email" type="email" autocomplete="email" required>
+      <label for="child-age">Program of interest</label>
+      <select id="child-age" name="program" required>
+        <option value="">Please select</option>
+        <option>Infants</option><option>Toddlers</option><option>Preschool</option><option>K-Prep</option>
+      </select>
+      <label for="family-message">Message</label>
+      <textarea id="family-message" name="message" placeholder="Tell us how we can help."></textarea>
+      <button class="btn" type="submit">Prepare Inquiry</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      <p class="note">This sample form demonstrates website interaction. It does not send or store personal information.</p>
+    </form>
+  <p class="note" style="color:#d9e2e8">All contact details and the address are fictional placeholders for this assignment. This demonstration page is not a live childcare service.</p>
+</section>
+</main>
+<footer>© 2026 Early Bird Academy · Directed by Nida Zohra · A fictional classroom-family communication website for educational use.</footer>
+
+<script>
+(function(){
+  const tabs = Array.from(document.querySelectorAll('[role="tab"][data-tab]'));
+  const panels = Array.from(document.querySelectorAll('.tab-panel'));
+  function showTab(name, updateHash=true){
+    const selected = tabs.find(tab => tab.dataset.tab === name) || tabs[0];
+    tabs.forEach(tab => {
+      const active = tab === selected;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+    });
+    panels.forEach(panel => {
+      const active = panel.id === selected.dataset.tab;
+      panel.hidden = !active;
+      panel.classList.toggle('active', active);
+    });
+    if(updateHash) history.replaceState(null, '', '#' + selected.dataset.tab);
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => showTab(tab.dataset.tab));
+    tab.addEventListener('keydown', event => {
+      let next = index;
+      if(event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      else if(event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+      else if(event.key === 'Home') next = 0;
+      else if(event.key === 'End') next = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      tabs[next].focus();
+      showTab(tabs[next].dataset.tab);
+    });
+  });
+  document.querySelectorAll('[data-open-tab]').forEach(button =>
+    button.addEventListener('click', () => showTab(button.dataset.openTab))
+  );
+  window.addEventListener('hashchange', () => {
+    const requested = location.hash.slice(1);
+    if(tabs.some(tab => tab.dataset.tab === requested)) showTab(requested, false);
+  });
+  const initial = location.hash.slice(1);
+  if(tabs.some(tab => tab.dataset.tab === initial)) showTab(initial, false);
+  else showTab('home', false);
+
+  const form = document.getElementById('family-inquiry');
+  if(form) form.addEventListener('submit', event => {
+    event.preventDefault();
+    const name = document.getElementById('family-name').value.trim();
+    document.getElementById('form-status').textContent =
+      'Thank you, ' + name + '! Your sample inquiry is ready. Please contact the director by phone or email to submit it.';
+    form.reset();
+  });
+})();
+</script>
+\n</body></html>
